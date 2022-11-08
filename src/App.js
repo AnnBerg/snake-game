@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React,{useState, useEffect} from 'react';
 import './App.css';
+import  Board  from './components/board/board';
 
 function App() {
+  const [start, setstart] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button className={"start_btn" + (start ? ' hidden' : '')}
+        role="button"
+        onClick={()=>setstart(true)}
+        >Start</button>
+
+    
+        {start && <Board start = {start} />}
+
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
